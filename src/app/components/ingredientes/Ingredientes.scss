@@ -1,0 +1,34 @@
+.container{
+    margin: 0;
+    padding: 0;
+    width: 98vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .container_ingredientes{
+        width: 70wv;
+        height: 70vh;
+        .titleIngredientes{
+            text-align: center;
+        }
+        .listIngredientes{
+            
+            list-style: none;
+            .list{
+                width: 20vw;
+                height: 20vh;
+                border-radius: 1vw;
+                padding: 1vw;
+                justify-content: center;
+                flex-direction: column;
+                background-color: gray;
+                margin-bottom: 1vw;
+                .strong{
+                    font-size: 9vw;
+                }
+            }
+        }
+    }
+}
