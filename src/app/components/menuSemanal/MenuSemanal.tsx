@@ -1,4 +1,3 @@
-import "./MenuSemanal.scss"
 import React, { useState, useEffect } from 'react';
 
 type Ingrediente = {
@@ -19,7 +18,10 @@ type Receta = {
 type Plato = {
   receta_id: number;
   porciones: number;
+  ingredientes?: number[]; // Hacer 'ingredientes' opcional
 };
+
+
 
 type Menu = {
   id: number;
@@ -46,9 +48,16 @@ const MenuSemanal: React.FC = () => {
         console.error('Error al cargar los datos:', error);
       }
     };
-
+  
     fetchDatos();
   }, []);
+ 
+  
+  
+  
+  
+  
+  
 
   const obtenerRecetaPorId = (recetaId: number): Receta | undefined => {
     return datos?.recetas.find((receta) => receta.id === recetaId);
@@ -70,22 +79,61 @@ const MenuSemanal: React.FC = () => {
     });
   };
 
+  const handleEliminarIngrediente = (menuIndex: number, platoIndex: number, ingredienteIndex: number) => {
+    setDatos((prevDatos) => {
+      if (!prevDatos) {
+        return prevDatos;
+      }
+  
+      const nuevosMenus = [...prevDatos.menus];
+      const plato = nuevosMenus[menuIndex].platos[platoIndex];
+  
+      if (plato) {
+        const receta = obtenerRecetaPorId(plato.receta_id);
+  
+        if (receta) {
+          const nuevosIngredientes = receta.ingredientes.filter((_, index) => index !== ingredienteIndex);
+  
+          // Crear un nuevo array de recetas actualizado
+          const nuevasRecetas = prevDatos.recetas.map((r) => {
+            if (r.id === receta.id) {
+              return { ...r, ingredientes: nuevosIngredientes };
+            }
+            return r;
+          });
+  
+          return {
+            ...prevDatos,
+            recetas: nuevasRecetas,
+            menus: nuevosMenus,
+          };
+        }
+      }
+  
+      return prevDatos;
+    });
+  };
+  
+  
+  
+  
+
   if (!datos) {
     return <p>Cargando datos...</p>;
   }
 
   return (
-    <div className="containerMenuSemanal"> 
-      {datos.menus.map((menu) => (
+    <div className="containerMenuSemanal">
+      {datos.menus.map((menu, menuIndex) => (
         <div key={menu.id} className="menu">
-          <h1 className="nombre" >{menu.nombre}</h1>
-          <p className="descripcion" >{menu.descripcion}</p>
+          <h1 className="nombre">{menu.nombre}</h1>
+          <p className="descripcion">{menu.descripcion}</p>
 
-          {menu.platos.map((plato, index) => {
+          {menu.platos.map((plato, platoIndex) => {
             const receta = obtenerRecetaPorId(plato.receta_id);
 
             if (!receta) {
-              return <p key={index}>Receta no encontrada</p>;
+              return <p key={platoIndex}>Receta no encontrada</p>;
             }
 
             const ingredientesReceta = obtenerIngredientesPorIds(receta.ingredientes);
@@ -95,11 +143,18 @@ const MenuSemanal: React.FC = () => {
                 <h2 className="nombreReceta">Receta: {receta.nombre}</h2>
                 <p className="nombreIngrediente">Ingredientes:</p>
                 <ul className="lista">
-                  {ingredientesReceta.map((ingrediente, i) => (
-                    <li key={i}>{`${i + 1}-${ingrediente.nombre}`}</li>
+                  {ingredientesReceta.map((ingrediente, ingredienteIndex) => (
+                    <li key={ingrediente.id}>
+                      {`${ingrediente.nombre}`}
+                      <button
+                        onClick={() => handleEliminarIngrediente(menuIndex, platoIndex, ingredienteIndex)}
+                      >
+                        Eliminar
+                      </button>
+                    </li>
                   ))}
                 </ul>
-                <p>Cantidad de porción: {plato.porciones}</p>
+                <p className="cantidad">Cantidad de porción: {plato.porciones}</p>
               </div>
             );
           })}
@@ -109,4 +164,4 @@ const MenuSemanal: React.FC = () => {
   );
 };
 
-export  {MenuSemanal};
+export { MenuSemanal };

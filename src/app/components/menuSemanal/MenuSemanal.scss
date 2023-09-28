@@ -12,17 +12,38 @@
         padding: 1vw;
     
         .nombre{
+            font-size: 1.8vw;
             text-align: center;
         }
-        
+        .descripcion{
+            font-size: 1vw;
+        }
+        .nombreReceta{
+            font-size: 1.3vw;
+        }
+        .nombreIngrediente{
+            font-size: .9vw;
+        }
+               
         .lista{
             list-style: none;
+            font-size: 1vw;
+        }
+        .instrucciones{
+            font-size: .9vw;
+        }
+        .img{
+            font-size: .8vw;
+            
+        }
+        .cantidad{
+            font-size: 1vw;
         }
     }
 
 }
 
-@media (max-width: 720px){
+@media (max-width: 770px){
     .containerMenuSemanal{
         display: flex;
         flex-direction: column;
@@ -36,11 +57,31 @@
             padding: 1vw;
         
             .nombre{
-                text-align: center;
+                font-size: 3vw;
             }
-            
+            .descripcion{
+                font-size: 2.5vw;
+            }
+            .nombreReceta{
+                font-size: 2.5vw;
+            }
+            .nombreIngrediente{
+                font-size: 2.5vw;
+            }
+                   
             .lista{
-                list-style: none;
+                
+                font-size: 2vw;
+            }
+            .instrucciones{
+                font-size: 2vw;
+            }
+            .img{
+                font-size: 2vw;
+                
+            }
+            .cantidad{
+                font-size: 2.3vw;
             }
         }
     

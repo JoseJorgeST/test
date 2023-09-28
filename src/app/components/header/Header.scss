@@ -1,76 +1,161 @@
-.container_logo{
-    
-    display: flex;
-    width: 20vw;
-    height: 25vh;
-    align-items: center;
-    justify-content: center;
-    
-    .img{
-        margin-right: 1vw;
-        width: 2vw;
-        height: 5vw;
-        img{
-            width: 100%;
-            height: 100%; 
-        }
-    }
-    
-    h1{
-        
-        font-size: 3vw;
-        margin: 0;
-        padding: 0;
-    }
+.toggle-button {
+  display: none;
 }
-.container_nav{
-    
-    width: 20vw;
-    height: 25vh;
+.container-logo-1 {
+  display: flex;
+  width: 20vw;
+  height: 25vh;
+  align-items: center;
+  justify-content: center;
+
+  .img {
+    margin-right: 1vw;
+    width: 2vw;
+    height: 5vw;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h1 {
+    font-size: 3vw;
+    margin: 0;
+    padding: 0;
+  }
+}
+.container_nav_1 {
+  width: 20vw;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  nav {
+    .link {
+      margin-bottom: 1vw;
+      background-color: #0c1323;
+      padding: 0.3vw 5vw;
+      color: white;
+      border-radius: 0.5vw;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 1.5vw;
+    }
+    .link:hover {
+      background-color: #ffffff;
+      border: 3px solid black;
+      color: #0c1323;
+    }
+  }
+}
+.social_1 {
+  width: 20vw;
+  height: 15vw;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  .container_social {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    nav{
+    width: 13vw;
+    height: 3vw;
+    img {
+      margin-right: 2vw;
+      width: 100%;
+      height: 100%;
+    }
+    img:hover {
+      background-color: rgba(0, 0, 255, 0.274);
+    }
+  }
+}
+
+.container-logo-2,
+.container_nav_2,
+.social_2 {
+  display: none;
+}
+@media (max-width: 450px) {
+  .toggle-button {
+    display: block;
+  }
+  .container-logo-1,
+  .container_nav_1,
+  .social_1 {
+    display: none;
+  }
+  
+    .container-logo-2 {
+        display: flex;
+        width: 20vw;
+        height: 25vh;
+        align-items: center;
+        justify-content: center;
         
-        .link{
+        .img {
+          margin-right: 1vw;
+          width: 2vw;
+          height: 5vw;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      
+        h1 {
+          font-size: 3vw;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .container_nav_2 {
+        width: 20vw;
+        height: 25vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        nav {
+          .link {
             margin-bottom: 1vw;
-            background-color: #0C1323;
-            padding: .3vw 5vw;
+            background-color: #0c1323;
+            padding: 0.3vw 5vw;
             color: white;
-            border-radius: .5vw;
+            border-radius: 0.5vw;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             font-size: 1.5vw;
-        }
-        .link:hover{
+          }
+          .link:hover {
             background-color: #ffffff;
             border: 3px solid black;
-            color: #0C1323;
-            
+            color: #0c1323;
+          }
         }
-    }
-}
-.social{
-    width: 20vw;
-    height: 15vw;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    .container_social{
+      }
+      .social_2 {
+        width: 20vw;
+        height: 15vw;
         display: flex;
-        width: 13vw;
-        height: 3vw;
-        img{
+        align-items: end;
+        justify-content: center;
+        .container_social {
+          display: flex;
+          width: 13vw;
+          height: 3vw;
+          img {
             margin-right: 2vw;
             width: 100%;
             height: 100%;
-        }
-        img:hover{
+          }
+          img:hover {
             background-color: rgba(0, 0, 255, 0.274);
+          }
         }
-    }
-    
-}
+      }
+  }
+
