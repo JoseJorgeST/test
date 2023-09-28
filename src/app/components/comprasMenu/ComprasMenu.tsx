@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "../menuSemanal/MenuSemanal.scss"
 
 type Ingrediente = {
   id: number;
@@ -43,10 +44,10 @@ const ComprasMenu: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='containerMenuSemanal'>
       {datos.listas_de_compra.map((lista) => (
-        <div key={lista.id}>
-          <h1>{lista.nombre}</h1>
+        <div key={lista.id} className="menu">
+          <h1 className="nombre">{lista.nombre}</h1>
           <ul>
             {lista.items.map((item, i) => {
               const ingrediente = obtenerIngredientePorId(item.ingrediente_id);
@@ -56,7 +57,7 @@ const ComprasMenu: React.FC = () => {
               }
 
               return (
-                <li key={i}>
+                <li key={i} className="lista">
                   {`${ingrediente.nombre} - Cantidad: ${item.cantidad}`}
                 </li>
               );

@@ -1,3 +1,4 @@
+import "../menuSemanal/MenuSemanal.scss"
 import React, { useState, useEffect } from 'react';
 
 type Ingrediente = {
@@ -58,10 +59,10 @@ const RecetasMenu: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='containerMenuSemanal'>
       {datos.menus.map((menu) => (
-        <div key={menu.id}>
-          <h1>{menu.nombre}</h1>
+        <div key={menu.id} className="menu">
+          <h1 className="nombre">{menu.nombre}</h1>
           <p>{menu.descripcion}</p>
 
           {menu.platos.map((plato, index) => {
@@ -77,7 +78,7 @@ const RecetasMenu: React.FC = () => {
               <div key={receta.id}>
                 <h2>{receta.nombre}</h2>
                 <p>Ingredientes:</p>
-                <ul>
+                <ul className="lista">
                   {ingredientesReceta.map((ingrediente) => (
                     <li key={ingrediente.id}>
                       {`${ingrediente.id} - ${ingrediente.nombre}`}
@@ -85,7 +86,9 @@ const RecetasMenu: React.FC = () => {
                   ))}
                 </ul>
                 <p>Instrucciones: {receta.instrucciones}</p>
+                
                 <img src={receta.foto} alt={receta.nombre} />
+                
               </div>
             );
           })}
