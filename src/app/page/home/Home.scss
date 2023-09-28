@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    
+}
+.containers{
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    background-color: #0c1323;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .container{
+        width: 85vw;
+        height: 85vh;
+        background-color: white;
+        color: #0c1323;
+        border-radius: 3vw;
+        display: flex;
+        
+        .container_header{
+            width: 20vw;
+            border-right: 3px solid #0c1323;
+        }
+        .container_main{
+            .container_main{
+                width: 65vw;
+                overflow-x: hidden;
+                position: relative;
+      
+            }
+    }
+    }
+}
